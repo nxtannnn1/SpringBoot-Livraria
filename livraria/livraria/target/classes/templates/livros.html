@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>CRUD de Livros</title>
+</head>
+<body>
+<h1>Lista de Livros</h1>
+
+<!-- Exibir lista de livros -->
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Título</th>
+        <th>Autor</th>
+        <th>Ações</th>
+    </tr>
+    <tr th:each="livro : ${livros}">
+        <td th:text="${livro.id}"></td>
+        <td th:text="${livro.titulo}"></td>
+        <td th:text="${livro.autor}"></td>
+        <td>
+            <a th:href="@{/livros/{id}(id=${livro.id})}">Editar</a> |
+            <a th:href="@{/livros/{id}/deletar(id=${livro.id})}">Deletar</a>
+        </td>
+    </tr>
+</table>
+
+<h2>Criar Novo Livro</h2>
+<!-- Formulário para criar um livro -->
+<form action="#" th:action="@{/livros}" th:object="${livro}" method="post">
+    <label for="titulo">Título:</label>
+    <input type="text" id="titulo" th:field="*{titulo}" required/><br/>
+
+    <label for="autor">Autor:</label>
+    <input type="text" id="autor" th:field="*{autor}" required/><br/>
+
+    <label for="anoPublicacao">Ano de Publicação:</label>
+    <input type="number" id="anoPublicacao" th:field="*{anoPublicacao}" required/><br/>
+
+    <label for="paginas">Número de Páginas:</label>
+    <input type="number" id="paginas" th:field="*{paginas}" required/><br/>
+
+    <button type="submit">Salvar</button>
+</form>
+</body>
+</html>
