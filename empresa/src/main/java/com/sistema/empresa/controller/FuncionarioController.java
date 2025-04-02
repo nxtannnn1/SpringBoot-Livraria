@@ -2,6 +2,7 @@ package com.sistema.empresa.controller;
 
 import com.sistema.empresa.model.Funcionario;
 import com.sistema.empresa.service.FuncionarioService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,12 +10,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/funcionarios")
+@RequestMapping("/funcionarios") //Define a página principal do site
 public class FuncionarioController {
 
     private final FuncionarioService funcionarioService;
 
-    public FuncionarioController(FuncionarioService funcionarioService) {
+    @Autowired
+    public FuncionarioController(FuncionarioService funcionarioService) { //Poderia utilizar autowired para extinguir a existência do construtor
         this.funcionarioService = funcionarioService;
     }
 
@@ -35,8 +37,10 @@ public class FuncionarioController {
         return ResponseEntity.noContent().build();
     }
 
-    @PutMapping
-    public ResponseEntity<Funcionario> atualizar(@RequestBody Funcionario funcionario) {
+    @PutMapping("/{id}")
+    public ResponseEntity<Funcionario> atualizar(@PathVariable Long id, @RequestBody Funcionario funcionario) {
+        // Certifique-se de que o ID da URL seja atribuído ao objeto funcionario
+        funcionario.setId(id);  // Aqui o id da URL é atribuído ao objeto `funcionario`
         Funcionario atualizado = funcionarioService.atualizar(funcionario);
         return ResponseEntity.ok(atualizado);
     }
