@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/funcionarios") //Define a página principal do site
+@RestController //Controller REST da API
+@RequestMapping("/funcionarios") //Define a URL básica do site
 public class FuncionarioController {
 
     private final FuncionarioService funcionarioService;
@@ -21,9 +21,9 @@ public class FuncionarioController {
     }
 
     @PostMapping
-    public ResponseEntity<Funcionario> salvar(@RequestBody Funcionario funcionario) {
+    public ResponseEntity<String> salvar(@RequestBody Funcionario funcionario) {
         Funcionario salvo = funcionarioService.salvarFuncionario(funcionario);
-        return ResponseEntity.status(HttpStatus.CREATED).body(salvo);
+        return ResponseEntity.status(HttpStatus.CREATED).body("Usuário cadastrado!");
     }
 
     @GetMapping
@@ -43,5 +43,10 @@ public class FuncionarioController {
         funcionario.setId(id);  // Aqui o id da URL é atribuído ao objeto `funcionario`
         Funcionario atualizado = funcionarioService.atualizar(funcionario);
         return ResponseEntity.ok(atualizado);
+    }
+
+    @GetMapping("/penis")
+    public ResponseEntity<String> testes(){
+        return ResponseEntity.ok("Testes");
     }
 }
