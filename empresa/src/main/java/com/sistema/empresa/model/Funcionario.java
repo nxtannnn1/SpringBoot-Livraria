@@ -9,18 +9,18 @@ import lombok.Setter;
 import com.sistema.empresa.enums.CARGO;
 
 @Entity //Indica que será uma tabela no BD
-@Table (name="funcionario") //Define nome
+@Table (name="funcionario") //Define nome da tabela
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@AllArgsConstructor //Construtor com todos os argumentos já inicializados
+@NoArgsConstructor //Construtor sem argumentos, serve para inicializar atributos sem atribuir valores
 public class Funcionario {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id //Primary Key
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //Garante que seja auto_increment no BD
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false) //Tabela BD
     private String nome;
     private Double salario;
     private String cpf;
@@ -76,7 +76,7 @@ public class Funcionario {
         this.sexo = sexo;
     }
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="endereco_id")
+    @OneToOne(cascade = CascadeType.ALL) //Tipo de relacionamento, onde um funcionario tem apenas um endereço cadastrado
+    @JoinColumn(name="endereco_id") //Nome da chave estrangeira
     private Endereco endereco;
 }
