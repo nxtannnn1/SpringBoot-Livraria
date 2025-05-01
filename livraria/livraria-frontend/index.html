@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livraria</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Livros</h1>
+    <form id="form-livro">
+        <input type="text" id="nome" placeholder="Nome do livro" required>
+        <input type="number" id="paginas" placeholder="Páginas" required>
+        
+        <select id="categoria" required>
+<option value="">Selecione a categoria</option>
+<option value="ROMANCE">Romance</option>
+<option value="ACAO">Ação</option>
+<option value="TERROR">Terror</option>
+<option value="ETC">Outros</option>
+<option value="AVENTURA">Aventura</option>
+
+        </select>
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <ul id="lista-livros"></ul>
+
+    <script src="script.js"></script>
+</body>
+</html>
