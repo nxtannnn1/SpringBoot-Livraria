@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livraria</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>Cadastrar Livro</h1>
+    <form id="form-livro">
+        <div>
+            <label for="titulo">Título:</label>
+            <input type="text" id="titulo" name="titulo" placeholder="Título" required>
+        </div>
+        <div>
+            <label for="paginas">Páginas:</label>
+            <input type="number" id="paginas" name="paginas" placeholder="Páginas" required>
+        </div>
+        <div>
+            <label for="categoria">Categoria:</label>
+            <select id="categoria" name="categoria" required>
+                <option value="Ação">Ação</option>
+                <option value="Aventura">Aventura</option>
+                <option value="Terror">Terror</option>
+                <option value="Outros">Outros</option>
+                <option value="Suspense">Suspense</option>
+                <option value="Romance">Romance</option>
+            </select>
+        </div>
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <h2>Livros Cadastrados</h2>
+    <ul id="livros-lista"></ul>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
