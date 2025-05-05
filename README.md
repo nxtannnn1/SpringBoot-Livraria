@@ -19,6 +19,6 @@ Resumo das Funcionalidades
 
 Sobre o Autor:
 
-Natan William de Santana Silva
-https://www.linkedin.com/in/natan-tech/
-natanwill.contatar@outlook.com
+- Natan William de Santana Silva
+- https://www.linkedin.com/in/natan-tech/
+- natanwill.contatar@outlook.com
