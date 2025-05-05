@@ -4,11 +4,11 @@ Minha primeira aplicação fullstack, onde é possível gerenciar livros
 
 Tecnologias aplicadas:
 
-Java + Spring Boot
-Spring Data JPA
-HTML, CSS e JavaScript
-MySQL Workbench
-Maven
+- Java + Spring Boot
+- Spring Data JPA
+- HTML, CSS e JavaScript
+- MySQL Workbench
+- Maven
 
 Resumo das Funcionalidades
 
